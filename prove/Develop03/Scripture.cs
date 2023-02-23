@@ -1,46 +1,33 @@
 class Scripture
 {
-    private string _reference;
-    private string _verseText;
 
-    public Scripture()
-    {
-        _reference = "Philippians 4:13";
-        _verseText = "I can do all things through Christ, which strengtheneth me.";
+    private string _refKey;
+
+    private string _refValue;
+
+    public Scripture (string refKey, string refValue){
+        this._refKey = refKey;
+        this._refValue = refValue;
     }
-    public Scripture(string customReference)
-    {
-        _reference = customReference;
-        _verseText = "";
+
+
+    public string getRefKey(){
+        return this._refKey;
     }
-    
-    public string GetReference()
-    {
-        return _reference;
+
+    public void setRefKey(string refKey){
+        this._refKey = refKey;
     }
-    public string GetVerse()
-    {
-        return _verseText;
+
+    public string getRefValue(){
+        return this._refValue;
     }
-    public void SetReference(string reference)
-    {
-        _reference = reference;
+
+    public void setRefValue(string refValue){
+        this._refValue = refValue;
     }
-    public void SetVerseText(string verseText)
-    {
-        _verseText = verseText;
-    }
-    
-    public string DisplayReference()
-    {
-        Console.Clear();
-        Console.WriteLine(_reference);
-        return _reference;
-    }
-    public string DisplayVerse()
-    {
-        Console.WriteLine(_verseText);
-        Console.WriteLine();
-        return _verseText;
-    }
+
+
+
+
 }
