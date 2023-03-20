@@ -1,38 +1,44 @@
+using System;
+
 public abstract class Goal
 {
-    protected bool _completed;
-    protected string _goalName;
-    protected int _difficulty;
-    protected int _pointValue;
-    protected string _goalType;
+    // Attributes
+    private string _type;
+    private string _name;
+    private string _description;
+    private int _points;
 
-    public Goal()
+
+    // Constructors
+    public Goal(string type, string name, string description, int points)
     {
-        _completed = false;
-        _goalName = "name";
-        _difficulty = 0;
-        _pointValue = 0;
-        _goalType = "type";
+        _type = type;
+        _name = name;
+        _description = description;
+        _points = points;
+    }
+    public string GetType()
+    {
+        return _type;
+    }
+    public string GetName()
+    {
+        return _name;
+    }
+    public string GetDescription()
+    {
+        return _description;
+    }
+    public int GetPoints()
+    {
+        return _points;
     }
 
-    public abstract void CompleteGoal();
-    public virtual string GetGoalString()
-    {
-        return $"({_goalType}) {_goalName} - "+
-        $"difficulty: {_difficulty} - {_pointValue} points";
-    }
 
-    public virtual void SetGoal()
-    {
-        Console.Write("Enter name of goal: ");
-        _goalName = Console.ReadLine();
-        Console.Write("Enter difficulty. (1=easiest, 3=hardest): ");
-        int diff = int.Parse(Console.ReadLine());
-        _difficulty = diff;
-    }
+    // Methods
+    public abstract void ListGoal(int i);
+    public abstract string SaveGoal();
+    public abstract string LoadGoal();
+    public abstract void RecordGoalEvent(List<Goal> goals);
 
-    public virtual int GetPoints()
-    {
-        return _completed ? _pointValue : 0;
-    }
 }
